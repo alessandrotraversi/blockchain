@@ -10,7 +10,8 @@
     "test:watch": "jest --watch --passWithNoTests",
     "pre-commit": "yarn eslint & yarn test",
     "eslint": "eslint",
-    "eslint:fix": "eslint --fix"
+    "eslint:fix": "eslint --fix",
+    "open-new-pull-request": "npx gh pr create --base develop --fill --title 'My title' --body '$(cat .github/PULL_REQUEST_TEMPLATE.md)'"
   },
   "keywords": [
     "blockchain",

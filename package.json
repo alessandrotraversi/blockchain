@@ -4,7 +4,7 @@
   "description": "Blockchain base",
   "main": "index.js",
   "scripts": {
-    "dev": "",
+    "start": "npx ts-node-dev --respawn --transpile-only src/infra/CLI/index.ts",
     "test": "jest --passWithNoTests",
     "test:coverage": "jest --coverage --passWithNoTests",
     "test:watch": "jest --watch --passWithNoTests",

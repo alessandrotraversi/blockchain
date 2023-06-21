@@ -13,6 +13,7 @@ interface I_CLIquestionInputPayload {
 interface I_CLIselectInputPayload {
     question: string
     errorMessage: string
+    options: string[]
 }
 
 export default class CLIinput {
@@ -33,7 +34,17 @@ export default class CLIinput {
     }
 
     static makeChoose(payload: I_CLIselectInputPayload) {
-
+        const { question, errorMessage, options } = payload
+        let input;
+        while (input === undefined) {
+            const userInput = readlineSync.keyInSelect(options, question);
+            try {
+                input = options[userInput]
+            } catch {
+                this.logger.error(errorMessage)
+            }
+        }
+        return input;
     }
 }
   

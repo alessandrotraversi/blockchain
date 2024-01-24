@@ -2,11 +2,12 @@
 import Entity from "../../../common/abstract/entity.abstract";
 
 // TYPES
+import type BlockModelInterface from "../../../common/interface/model/block.model.interface";
 import type BlockInterface from "./block.interface";
 import type { BlockDataType } from "../../../common/type/block.data.type";
-import BlockValidator from "../validation/block.validator";
 
 // VALIDATORS
+import BlockValidator from "../validation/block.validator";
 
 export default class Block extends Entity implements BlockInterface<BlockDataType> {
   private _timestamp: BlockInterface<BlockDataType>["timestamp"]
@@ -15,7 +16,7 @@ export default class Block extends Entity implements BlockInterface<BlockDataTyp
   private _previousHash: BlockInterface<BlockDataType>["previousHash"]
   private _hash: BlockInterface<BlockDataType>["hash"]
 
-  constructor(payload: BlockInterface<BlockDataType>) {
+  constructor(payload: BlockModelInterface<BlockDataType>) {
     const { id, timestamp, data, nonce, previousHash, hash } = payload;
 
     super(id);

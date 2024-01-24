@@ -10,13 +10,22 @@ import BlockService from '../service/block.service';
 
 // TYPES
 import type { BlockDataType } from '../../../common/type/block.data.type';
-import type BlockInterface from '../entity/block.interface';
+import type BlockModelInterface from '../../../common/interface/model/block.model.interface';
 
-type EntityType = BlockInterface<BlockDataType>;
+type EntityType = BlockModelInterface<BlockDataType>;
 
 export default class BlockFactory {
   static create(blockData: Pick<EntityType, 'data' | 'previousHash'>): EntityType {
-    const newBlock = { id: uuid(), timestamp: dayjs().format(), nonce: BlockService.generateBlockNonce(), ...blockData};
-    return new Block({ ...newBlock, hash: BlockService.generateBlockHash(newBlock) });
+    const newBlock = { 
+      id: uuid(), 
+      timestamp: dayjs().format(), 
+      nonce: BlockService.generateBlockNonce(), 
+      ...blockData
+    };
+
+    return new Block({ 
+      ...newBlock, 
+      hash: BlockService.generateBlockHash(newBlock) 
+    });
   }
 }

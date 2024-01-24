@@ -4,7 +4,6 @@ import { faker } from "@faker-js/faker"
 // TO TEST
 import BlockFactory from "./block.factory";
 
-
 describe("Block factory unit test", () => {
   it("should create a block", () => {
     const block = BlockFactory.create({

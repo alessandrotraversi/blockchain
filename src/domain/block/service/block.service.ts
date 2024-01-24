@@ -4,9 +4,9 @@ import crypto from "crypto";
 
 //TYPES
 import type { BlockDataType } from "../../../common/type/block.data.type";
-import type BlockInterface from "../entity/block.interface";
+import type BlockModelInterface from "../../../common/interface/model/block.model.interface";
 
-type EntityType = BlockInterface<BlockDataType>;
+type EntityType = BlockModelInterface<BlockDataType>;
 
 export default class BlockService {
   static generateBlockHash(entity: Omit<EntityType, 'hash'>): string {

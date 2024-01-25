@@ -5,14 +5,14 @@ import * as yup from "yup";
 import Validator from "../../../common/abstract/validator.abstract";
 
 // TYPES
-import type ChainModelInterface from "../../../common/interface/model/chain.model.interface";
+import type ChainInterface from "../entity/chain.interface";
 
-type EntityType = ChainModelInterface;
+type EntityType = ChainInterface;
 
 export default class ChainCreateValidator extends Validator<EntityType> {
   constructor(entity: EntityType) {
     super({
-      context: '[Domain][Block] validation',
+      context: '[Domain][Chain] validation',
       entity,
       schema: {
         id: yup.string().required(),

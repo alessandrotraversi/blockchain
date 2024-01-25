@@ -10,9 +10,9 @@ import BlockService from '../service/block.service';
 
 // TYPES
 import type { BlockDataType } from '../../../common/type/block.data.type';
-import type BlockModelInterface from '../../../common/interface/model/block.model.interface';
+import type BlockInterface from '../entity/block.interface';
 
-type EntityType = BlockModelInterface<BlockDataType>;
+type EntityType = BlockInterface<BlockDataType>;
 
 export default class BlockFactory {
   static create(blockData: Pick<EntityType, 'data' | 'previousHash'>): EntityType {

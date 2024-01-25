@@ -13,6 +13,6 @@ describe("Chain factory unit test", () => {
 
     expect(chain.id).toBeDefined();
     expect(chain.name).toBeDefined();
-    expect(chain.blocks).toBeDefined(); 
+    expect(chain.blocks).toBeDefined();
   });
 });

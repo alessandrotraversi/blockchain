@@ -6,9 +6,9 @@ import Validator from "../../../common/abstract/validator.abstract";
 
 // TYPES
 import type { BlockDataType } from "../../../common/type/block.data.type";
-import type BlockModelInterface from "../../../common/interface/model/block.model.interface";
+import type BlockInterface from "../entity/block.interface";
 
-type EntityType = BlockModelInterface<BlockDataType>;
+type EntityType = BlockInterface<BlockDataType>;
 
 export default class BlockValidator extends Validator<EntityType> {
   constructor(entity: EntityType) {

@@ -2,24 +2,23 @@
 import readlineSync from 'readline-sync'
 
 // LOGGER
-import logger from '../output/output'
+import type Logger from "../logger/logger.interface";
+import Log from "../logger/decorator/logger.decorator";
+
+// ENUMS
+import { SystemInfraEnums } from '../../../common/enums/system/infra.enums';
 
 // TYPES
-interface I_CLIquestionInputPayload {
-    question: string
-    errorMessage: string
-}
+import type { CLIquestionInputPayloadType, CLIselectInputPayloadType } from './input.types'
+import type CLIinputInterface from './input.interface';
 
-interface I_CLIselectInputPayload {
-    question: string
-    errorMessage: string
-    options: string[]
-}
-
-export default class CLIinput {
-    private static readonly logger = new logger()
+@Log({
+    context: SystemInfraEnums.CLIinput,
+  })
+export default class CLIinput implements CLIinputInterface {
+    private readonly logger: Logger
   
-    static makeQuestion(payload: I_CLIquestionInputPayload) {
+    makeQuestion(payload: CLIquestionInputPayloadType) {
         let input;
         const { question, errorMessage} = payload
       while (input === undefined) {
@@ -33,7 +32,7 @@ export default class CLIinput {
       return input;
     }
 
-    static makeChoose(payload: I_CLIselectInputPayload) {
+    makeChoose(payload: CLIselectInputPayloadType) {
         const { question, errorMessage, options } = payload
         let input;
         while (input === undefined) {
@@ -47,4 +46,3 @@ export default class CLIinput {
         return input;
     }
 }
-  
